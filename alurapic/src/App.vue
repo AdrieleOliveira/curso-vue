@@ -16,17 +16,15 @@ export default {
     data() {
         return {
             titulo: 'Alurapic',
-            fotos: [
-                {
-                    url: 'https://img.freepik.com/fotos-gratis/cao-feliz-sorridente-isolado-fundo-branco-retrato-2_1562-691.jpg',
-                    titulo: 'Golden'
-                },
-                {
-                    url: 'https://blog.cobasi.com.br/wp-content/uploads/2020/07/boston-terrier-capa1.png',
-                    titulo: 'Pug'
-                }
-            ]
+            fotos: []
         }
+    },
+
+    created() {
+        let promise = this.$http.get('http://localhost:3000/v1/fotos')
+        promise
+            .then(res => res.json())
+            .then(fotos => this.fotos = fotos, err => console.log(err))
     }
 
 }
