@@ -1,7 +1,13 @@
 <template>
     <div>
         <h1>{{ titulo }}</h1>
-        <img :src="foto.url" :alt="foto.titulo">
+
+        <ul>
+            <li v-for="foto of fotos">
+                <img :src="foto.url" :alt="foto.titulo">
+            </li>
+        </ul>
+
     </div>
 </template>
 
@@ -10,10 +16,16 @@ export default {
     data() {
         return {
             titulo: 'Alurapic',
-            foto: {
-                url: 'https://img.freepik.com/fotos-gratis/cao-feliz-sorridente-isolado-fundo-branco-retrato-2_1562-691.jpg',
-                titulo: 'Cachorro'
-            }
+            fotos: [
+                {
+                    url: 'https://img.freepik.com/fotos-gratis/cao-feliz-sorridente-isolado-fundo-branco-retrato-2_1562-691.jpg',
+                    titulo: 'Golden'
+                },
+                {
+                    url: 'https://blog.cobasi.com.br/wp-content/uploads/2020/07/boston-terrier-capa1.png',
+                    titulo: 'Pug'
+                }
+            ]
         }
     }
 
